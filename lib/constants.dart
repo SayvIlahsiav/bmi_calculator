@@ -8,3 +8,5 @@ const kColorDarkBrown = Color(0xff914C3C);
 const kColorDarkGreen = Color(0xff467302);
 const kColorDarkYellow = Color(0xffD2DD13);
 const kColorLightText = Color(0xffEDF8E1);
+
+const kTextAppName = Text("BMI Calculator");
