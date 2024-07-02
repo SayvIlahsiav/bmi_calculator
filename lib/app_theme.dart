@@ -2,18 +2,30 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 
 final ThemeData appTheme = ThemeData(
-  primaryColor: kColorDarkText,
-  colorScheme: ColorScheme.fromSwatch().copyWith(
-    secondary: kColorDarkGreen,
-  ),
+  primarySwatch: Colors.blue,
+  scaffoldBackgroundColor: Colors.white,
   textTheme: TextTheme(
-    headline1: kTextAppName.style,
-    bodyText1: kTextStyleLabels,
+    displayLarge: TextStyle(
+      fontFamily: 'Roboto',
+      fontSize: 48,
+      fontWeight: FontWeight.bold,
+      color: kColorDarkText,
+    ),
+    bodyLarge: TextStyle(
+      fontFamily: 'Roboto',
+      fontSize: 16,
+      fontWeight: FontWeight.normal,
+      color: kColorDarkText,
+    ),
+    // Update other text styles as needed
   ),
-  appBarTheme: AppBarTheme(
-    color: Colors.transparent,
-    elevation: 0,
-    iconTheme: IconThemeData(color: kColorDarkText),
-    titleTextStyle: kTextAppName.style,
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      foregroundColor: kColorLightText, backgroundColor: kColorDarkGreen, textStyle: TextStyle(
+        fontFamily: 'Roboto',
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      ), // Button text color
+    ),
   ),
 );
