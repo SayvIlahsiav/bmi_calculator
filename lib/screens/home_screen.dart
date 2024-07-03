@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/components/gradient_background.dart';
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/components/gender_selector.dart';
@@ -18,31 +19,21 @@ class _HomeScreenState extends State<HomeScreen> {
         title: kTextAppName,
         backgroundColor: Colors.transparent,
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: <Color>[
-              kColorLightBlue,
-              kColorLightGreen,
-              kColorLightYellow,
-            ],
-            tileMode: TileMode.mirror,
-          ),
-        ),
-        child: SafeArea(
-          child: Column(
-            children: [
-              GenderSelector(
-                selectedGender: selectedGender,
-                onGenderSelected: (gender) {
-                  setState(() {
-                    selectedGender = gender;
-                  });
-                },
-              ),
-            ],
+      body: GradientBackground(
+        child: Container(
+          child: SafeArea(
+            child: Column(
+              children: [
+                GenderSelector(
+                  selectedGender: selectedGender,
+                  onGenderSelected: (gender) {
+                    setState(() {
+                      selectedGender = gender;
+                    });
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
