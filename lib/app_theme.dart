@@ -19,13 +19,4 @@ final ThemeData appTheme = ThemeData(
     ),
     // Update other text styles as needed
   ),
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ElevatedButton.styleFrom(
-      foregroundColor: kColorLightText, backgroundColor: kColorDarkGreen, textStyle: TextStyle(
-        fontFamily: 'Roboto',
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-      ), // Button text color
-    ),
-  ),
 );

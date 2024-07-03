@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:bmi_calculator/constants.dart';
 
 class GenderSelector extends StatelessWidget {
-  final String selectedGender;
+  final String? selectedGender;
   final ValueChanged<String> onGenderSelected;
 
   GenderSelector({required this.selectedGender, required this.onGenderSelected});
