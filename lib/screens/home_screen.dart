@@ -3,7 +3,6 @@ import 'package:bmi_calculator/components/gradient_background.dart';
 import 'package:bmi_calculator/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/components/gender_selector.dart';
-
 import '../components/age_selector.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,7 +19,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text('BMI Calculator'),
+        title: Text(
+          'BMI Calculator',
+          style: Theme.of(context).textTheme.displayMedium,
+        ),
         backgroundColor: Colors.transparent,
       ),
       body: GradientBackground(
@@ -47,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 'Age',
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
-              SizedBox(height: 18),
+              SizedBox(height: 16),
               AgeSelector(
                 initialAge: age,
                 onAgeChanged: (newAge) {
@@ -56,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   });
                 },
               ),
-              SizedBox(height: 64),
+              SizedBox(height: 48),
               CustomElevatedButton (
                 onPressed: () {
                   Navigator.push(

@@ -2,13 +2,19 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 
 final ThemeData appTheme = ThemeData(
-  primarySwatch: Colors.blue,
-  scaffoldBackgroundColor: Colors.white,
+  primarySwatch: Colors.lightGreen,
+  scaffoldBackgroundColor: kColorLightText,
   textTheme: TextTheme(
     displayLarge: TextStyle(
       fontFamily: 'Roboto',
       fontSize: 48,
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.w900,
+      color: kColorDarkText,
+    ),
+    displayMedium: TextStyle(
+      fontFamily: 'Roboto',
+      fontSize: 24,
+      fontWeight: FontWeight.w600,
       color: kColorDarkText,
     ),
     bodyLarge: TextStyle(
@@ -17,6 +23,5 @@ final ThemeData appTheme = ThemeData(
       fontWeight: FontWeight.normal,
       color: kColorDarkText,
     ),
-    // Update other text styles as needed
   ),
 );

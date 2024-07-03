@@ -37,6 +37,8 @@ class _AgeSelectorState extends State<AgeSelector> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 324,
+      height: 64,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16.0),
         boxShadow: [
@@ -52,7 +54,7 @@ class _AgeSelectorState extends State<AgeSelector> {
           BoxShadow(color: kColorLightGreen),
           BoxShadow(
             color: kColorLightText,
-            blurRadius: 20,
+            blurRadius: 25,
             spreadRadius: -0.25,
             offset: Offset(0, 1),
           ),
@@ -62,7 +64,7 @@ class _AgeSelectorState extends State<AgeSelector> {
           width: 1,
         ),
       ),
-      padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
+      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -72,11 +74,7 @@ class _AgeSelectorState extends State<AgeSelector> {
           ),
           Text(
             age.toString(),
-            style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-              color: kColorDarkText,
-            ),
+            style: Theme.of(context).textTheme.displayMedium,
           ),
           IconButton(
             icon: Icon(Icons.arrow_right, size: 32, color: kColorDarkText),
