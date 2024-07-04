@@ -40,23 +40,7 @@ class GenderSelector extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              boxShadow: isSelected ? [
-                BoxShadow(color: kColorDarkText),
-                BoxShadow(
-                  color: kColorDarkGreen,
-                  blurRadius: 8,
-                  spreadRadius: -0.25,
-                  offset: Offset(0, 1),
-                )
-              ] : [
-                BoxShadow(
-                  color: kColorDarkText,
-                  blurRadius: 4,
-                  spreadRadius: 0.25,
-                  offset: Offset(0, 0.25),
-                ),
-                BoxShadow(color: kColorLightText)
-              ],
+              boxShadow: isSelected ? kInnerShadow : kDropShadow,
               border: Border.all(
                 color: isSelected ? kColorDarkText : kColorDarkGreen,
                 width: 1,

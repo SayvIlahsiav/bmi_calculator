@@ -4,23 +4,23 @@ import 'constants.dart';
 final ThemeData appTheme = ThemeData(
   primarySwatch: Colors.lightGreen,
   scaffoldBackgroundColor: kColorLightText,
-  textTheme: TextTheme(
+  textTheme: const TextTheme(
     displayLarge: TextStyle(
       fontFamily: 'Roboto',
       fontSize: 48,
-      fontWeight: FontWeight.w900,
+      fontWeight: FontWeight.bold,
       color: kColorDarkText,
     ),
     displayMedium: TextStyle(
       fontFamily: 'Roboto',
       fontSize: 24,
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.bold,
       color: kColorDarkText,
     ),
-    bodyLarge: TextStyle(
+    bodySmall: TextStyle(
       fontFamily: 'Roboto',
       fontSize: 16,
-      fontWeight: FontWeight.normal,
+      fontWeight: FontWeight.bold,
       color: kColorDarkText,
     ),
   ),

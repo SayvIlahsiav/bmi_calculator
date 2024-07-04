@@ -19,8 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        leading: Icon(Icons.calculate_rounded, size: 32,),
         title: Text(
-          'BMI Calculator',
+          'BMI CALCULATOR',
           style: Theme.of(context).textTheme.displayMedium,
         ),
         backgroundColor: Colors.transparent,
@@ -33,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Text(
                 'Gender',
-                style: Theme.of(context).textTheme.bodyLarge,
+                style: Theme.of(context).textTheme.bodySmall,
               ),
               SizedBox(height: 24),
               GenderSelector(
@@ -47,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 48),
               Text(
                 'Age',
-                style: Theme.of(context).textTheme.bodyLarge,
+                style: Theme.of(context).textTheme.bodySmall,
               ),
               SizedBox(height: 16),
               AgeSelector(

@@ -16,18 +16,22 @@ class CustomElevatedButton extends StatelessWidget {
           // Drop shadow
           BoxShadow(
             color: kColorDarkText,
-            offset: Offset(0, 1),
+            offset: Offset(1, 1),
             blurRadius: 4,
             spreadRadius: 1,
           ),
           // Inner shadow
           BoxShadow(
-            color: kColorLightGreen,
-            offset: Offset(1, 1),
+            color: kColorLightText,
+            offset: Offset(-1, -1),
             blurRadius: 4,
             spreadRadius: -2,
           ),
         ],
+        border: Border.all(
+          color: kColorDarkText,
+          width: 0.25,
+        ),
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -42,7 +46,7 @@ class CustomElevatedButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.0), // Rounded corners
           ),
-          shadowColor: Colors.transparent, // Remove the default shadow
+          shadowColor: kColorDarkText, // Remove the default shadow
         ),
         onPressed: onPressed,
         child: Text(text),

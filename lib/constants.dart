@@ -10,21 +10,35 @@ const kColorDarkGreen = Color(0xff467302);
 const kColorDarkYellow = Color(0xffD2DD13);
 const kColorLightText = Color(0xffEDF8E1);
 
-final kTextAppName = Text(
-  'BMI Calculator',
-  style: GoogleFonts.roboto(
-    textStyle: const TextStyle(
-      color: kColorDarkText,
-      fontSize: 24,
-      fontWeight: FontWeight.w900,
-    ),
-  ),
-);
+const double itemWidth = 64.0;
 
-final kTextStyleLabels = GoogleFonts.roboto(
-  textStyle: const TextStyle(
+const kInnerShadow = [
+  BoxShadow(
+    color: kColorDarkText,
+    blurRadius: 2,
+    spreadRadius: -0.2,
+    offset: Offset(0, -0.2),
+    blurStyle: BlurStyle.inner,
+  ),
+  BoxShadow(
     color: kColorDarkGreen,
-    fontSize: 16,
-    fontWeight: FontWeight.normal,
-  )
-);
+    blurRadius: 8,
+    spreadRadius: -0.2,
+    offset: Offset(1, 1),
+    blurStyle: BlurStyle.inner,
+  ),
+];
+
+const kDropShadow = [
+  BoxShadow(
+    color: kColorDarkText,
+    blurRadius: 1,
+    spreadRadius: -1,
+  ),
+  BoxShadow(
+    color: kColorLightText,
+    blurRadius: 4,
+    spreadRadius: -1,
+    offset: Offset(-1, -1),
+  ),
+];
