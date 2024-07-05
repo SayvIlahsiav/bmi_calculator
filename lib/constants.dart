@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 const kColorLightBlue = Color(0xffB4DAF5);
 const kColorLightGreen = Color(0xffBBEEBA);
@@ -38,6 +37,20 @@ const kDropShadow = [
   BoxShadow(
     color: kColorLightText,
     blurRadius: 4,
+    spreadRadius: -1,
+    offset: Offset(-1, -1),
+  ),
+];
+
+const kDropShadowBtn = [
+  BoxShadow(
+    color: kColorDarkText,
+    blurRadius: 1,
+    spreadRadius: -1,
+  ),
+  BoxShadow(
+    color: kColorDarkGreen,
+    blurRadius: 8,
     spreadRadius: -1,
     offset: Offset(-1, -1),
   ),
