@@ -55,15 +55,15 @@ class _AgeSelectorState extends State<AgeSelector> {
   }
 
   double calculateTargetPosition(int age, double screenWidth) {
-    double agePosition = age * 32.0; // Assume each age is 32 pixels apart
+    double agePosition = age * itemWidth; // Assume each age is 32 pixels apart
     return agePosition - (screenWidth / 2);
   }
 
   double calculateMaxScrollExtent() {
     // Calculate the maximum scroll extent
     // Assuming the total number of ages is 100 for example
-    int totalAges = 100;
-    double maxScrollExtent = (totalAges - 1) * 32.0;
+    int totalAges = 91;
+    double maxScrollExtent = (totalAges - 1) * itemWidth;
     return maxScrollExtent;
   }
 
@@ -112,82 +112,77 @@ class _AgeSelectorState extends State<AgeSelector> {
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
-
-    return Column(
-      children: [
-        Container(
-          height: itemWidth,
-          child: Row(
-            children: [
-              IconButton(
-                icon: Icon(Icons.arrow_left, size: 32, color: kColorDarkText),
-                onPressed: _decrementAge,
-              ),
-              Expanded(
-                child: NotificationListener<ScrollNotification>(
-                  onNotification: (scrollNotification) {
-                    if (scrollNotification is ScrollEndNotification) {
-                      double centerPosition = _scrollController.position.pixels + (screenWidth / 2 - itemWidth / 2);
-                      int newAge = ((centerPosition / itemWidth) + 10).round();
-                      print('Center Position: $centerPosition');
-                      print('New Age: $newAge');
-                      if (newAge != age) {
-                        setState(() {
-                          age = newAge;
-                          widget.onAgeChanged(age);
-                        });
-                      }
-                    }
-                    return false;
-                  },
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    controller: _scrollController,
-                    itemCount: 91, // Age range from 10 to 100
-                    itemBuilder: (context, index) {
-                      final displayAge = index + 10;
-                      return GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            age = displayAge;
-                          });
-                          _scrollToAge(age);
-                          widget.onAgeChanged(age);
-                        },
-                        child: Container(
-                          width: itemWidth,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            boxShadow: age == displayAge ? kInnerShadow : kDropShadow,
-                            border: Border.all(
-                              color: age == displayAge ? kColorDarkText : kColorDarkGreen,
-                              width: 1,
-                            ),
-                          ),
-                          margin: EdgeInsets.symmetric(horizontal: 4),
-                          child: Text(
-                            displayAge.toString(),
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: age == displayAge ? kColorLightText : kColorDarkGreen,
-                              fontWeight: age == displayAge ? FontWeight.bold : FontWeight.normal,
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ),
-              IconButton(
-                icon: Icon(Icons.arrow_right, size: 32, color: kColorDarkText),
-                onPressed: _incrementAge,
-              ),
-            ],
+    return Container(
+      height: itemWidth,
+      child: Row(
+        children: [
+          IconButton(
+            icon: Icon(Icons.arrow_left, size: 32, color: kColorDarkText),
+            onPressed: _decrementAge,
           ),
-        ),
-      ],
+          Expanded(
+            child: NotificationListener<ScrollNotification>(
+              onNotification: (scrollNotification) {
+                if (scrollNotification is ScrollEndNotification) {
+                  double centerPosition = _scrollController.position.pixels + (screenWidth / 2 - itemWidth / 2);
+                  int newAge = ((centerPosition / itemWidth) + 10).round();
+                  print('Center Position: $centerPosition');
+                  print('New Age: $newAge');
+                  if (newAge != age) {
+                    setState(() {
+                      age = newAge;
+                      widget.onAgeChanged(age);
+                    });
+                  }
+                }
+                return false;
+              },
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                controller: _scrollController,
+                itemCount: 91, // Age range from 10 to 100
+                itemBuilder: (context, index) {
+                  final displayAge = index + 10;
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        age = displayAge;
+                      });
+                      _scrollToAge(age);
+                      widget.onAgeChanged(age);
+                    },
+                    child: Container(
+                      width: itemWidth,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        boxShadow: age == displayAge ? kInnerShadow : kDropShadow,
+                        border: Border.all(
+                          color: age == displayAge ? kColorDarkText : kColorDarkGreen,
+                          width: 1,
+                        ),
+                      ),
+                      margin: EdgeInsets.symmetric(horizontal: 4),
+                      child: Text(
+                        displayAge.toString(),
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: age == displayAge ? kColorLightText : kColorDarkGreen,
+                          fontWeight: age == displayAge ? FontWeight.bold : FontWeight.normal,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+          IconButton(
+            icon: Icon(Icons.arrow_right, size: 32, color: kColorDarkText),
+            onPressed: _incrementAge,
+          ),
+        ],
+      ),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:bmi_calculator/components/custom_elevated_button.dart';
 import 'package:bmi_calculator/components/gradient_background.dart';
-import 'package:bmi_calculator/screens/splash_screen.dart';
+import 'package:bmi_calculator/screens/second_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/components/gender_selector.dart';
 import '../components/age_selector.dart';
@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SplashScreen()),
+                    MaterialPageRoute(builder: (context) => SecondScreen()),
                   );
                 },
                 text: 'Next',
