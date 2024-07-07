@@ -22,7 +22,7 @@ class CustomElevatedButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           foregroundColor: kColorLightText,
           backgroundColor: Colors.transparent,
-          textStyle: TextStyle(
+          textStyle: const TextStyle(
             fontFamily: 'Roboto',
             fontSize: 24,
             fontWeight: FontWeight.bold,
