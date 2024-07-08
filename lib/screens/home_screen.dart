@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   });
                 },
               ),
-              SizedBox(height: 48),
+              SizedBox(height: 32),
               Text(
                 'Age',
                 style: Theme.of(context).textTheme.bodySmall,

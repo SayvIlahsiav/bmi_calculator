@@ -33,7 +33,7 @@ class _SecondScreenState extends State<SecondScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
                       'Height',
@@ -47,7 +47,7 @@ class _SecondScreenState extends State<SecondScreen> {
                 ),
                 SizedBox(height: 8),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     HeightWeightSelector(
                         initialHWValue: height,

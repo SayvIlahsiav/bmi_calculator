@@ -47,11 +47,11 @@ class GenderSelector extends StatelessWidget {
               ),
             ),
             padding: EdgeInsets.all(32),
-            height: 128,
-            width: 128,
+            height: 144,
+            width: 144,
             child: Icon(
               icon,
-              size: 64,
+              size: 72,
               color: kColorDarkText,
             ),
           ),
@@ -59,7 +59,7 @@ class GenderSelector extends StatelessWidget {
           Text(
             gender.toUpperCase(),
             style: TextStyle(
-              fontSize: 14,
+              fontSize: 16,
               fontWeight: FontWeight.bold,
               color: isSelected ? kColorDarkText : kColorDarkGreen,
             ),

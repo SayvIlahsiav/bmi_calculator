@@ -36,9 +36,10 @@ class ResultScreen extends StatelessWidget {
                   'Your BMI is:',
                   style: theme.textTheme.bodyMedium,
                 ),
+                SizedBox(height: 16),
                 Container(
-                  height: MediaQuery.of(context).size.width,
-                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.width * 0.8,
+                  width: MediaQuery.of(context).size.width * 0.8,
                   decoration: BoxDecoration(
                     //color: kColorLightText,
                     shape: BoxShape.circle,
@@ -55,8 +56,18 @@ class ResultScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: 16),
                 Text(
                   result.toUpperCase(),
+                  style: theme.textTheme.labelMedium,
+                ),
+                SizedBox(height: 32),
+                Text(
+                  'Healthy BMI range is:',
+                  style: theme.textTheme.bodyMedium,
+                ),
+                Text(
+                  '18.5 kg/m\u00b2 - 25 kg/m\u00b2',
                   style: theme.textTheme.labelMedium,
                 ),
                 SizedBox(height: 48),
