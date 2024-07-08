@@ -9,7 +9,8 @@ const kColorDarkGreen = Color(0xff467302);
 const kColorDarkYellow = Color(0xffD2DD13);
 const kColorLightText = Color(0xffEDF8E1);
 
-const double itemWidth = 64.0;
+const itemSize = 64.0;
+const screenPadding = EdgeInsets.all(32.0);
 
 const kInnerShadow = [
   BoxShadow(

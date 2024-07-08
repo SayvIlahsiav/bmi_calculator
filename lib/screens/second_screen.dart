@@ -1,4 +1,6 @@
 import 'package:bmi_calculator/components/gradient_background.dart';
+import 'package:bmi_calculator/constants.dart';
+import 'package:bmi_calculator/screens/result_screen.dart';
 import 'package:flutter/material.dart';
 import '../components/custom_elevated_button.dart';
 import '../components/height_weight_selector.dart';
@@ -26,7 +28,7 @@ class _SecondScreenState extends State<SecondScreen> {
         ),
         body: GradientBackground(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: screenPadding,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -70,7 +72,7 @@ class _SecondScreenState extends State<SecondScreen> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SecondScreen()),
+                      MaterialPageRoute(builder: (context) => ResultScreen(height: height.toDouble(), weight: weight.toDouble()),),
                     );
                   },
                   text: 'Calculate',

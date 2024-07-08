@@ -1,5 +1,4 @@
 import 'dart:developer';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
 
@@ -16,7 +15,7 @@ class HeightWeightSelector extends StatefulWidget {
 class _HeightWeightSelectorState extends State<HeightWeightSelector> {
   late int hw_value;
   final ScrollController _scrollController = ScrollController();
-  final double itemHeight = 64.0;
+  final double itemHeight = itemSize;
 
   @override
   void initState() {

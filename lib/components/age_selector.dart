@@ -15,7 +15,7 @@ class AgeSelector extends StatefulWidget {
 class _AgeSelectorState extends State<AgeSelector> {
   late int age;
   final ScrollController _scrollController = ScrollController();
-  final double itemWidth = 64.0;
+  final double itemWidth = itemSize;
 
   @override
   void initState() {

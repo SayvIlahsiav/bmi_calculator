@@ -4,6 +4,7 @@ import 'package:bmi_calculator/screens/second_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/components/gender_selector.dart';
 import '../components/age_selector.dart';
+import '../constants.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -28,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: GradientBackground(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: screenPadding,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
