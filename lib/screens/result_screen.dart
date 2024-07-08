@@ -36,9 +36,24 @@ class ResultScreen extends StatelessWidget {
                   'Your BMI is:',
                   style: theme.textTheme.bodyMedium,
                 ),
-                Text(
-                  bmi.toStringAsFixed(1),
-                  style: theme.textTheme.labelLarge,
+                Container(
+                  height: MediaQuery.of(context).size.width,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    //color: kColorLightText,
+                    shape: BoxShape.circle,
+                    boxShadow: kDropShadow,
+                    border: Border.all(
+                      color: kColorDarkGreen,
+                      width: 1,
+                    ),
+                  ),
+                  child: Center(
+                    child: Text(
+                      bmi.toStringAsFixed(1),
+                      style: theme.textTheme.labelLarge,
+                    ),
+                  ),
                 ),
                 Text(
                   result.toUpperCase(),

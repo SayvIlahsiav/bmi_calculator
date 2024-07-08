@@ -21,7 +21,7 @@ class CustomElevatedButton extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           foregroundColor: kColorLightText,
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white.withOpacity(0.09),
           textStyle: const TextStyle(
             fontFamily: 'Roboto',
             fontSize: 24,
