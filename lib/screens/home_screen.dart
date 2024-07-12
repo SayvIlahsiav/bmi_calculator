@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 'Gender',
                 style: Theme.of(context).textTheme.bodySmall,
               ),
-              SizedBox(height: 24),
+              SizedBox(height: 16),
               GenderSelector(
                 selectedGender: selectedGender,
                 onGenderSelected: (gender) {
@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   });
                 },
               ),
-              SizedBox(height: 32),
+              SizedBox(height: 24),
               Text(
                 'Age',
                 style: Theme.of(context).textTheme.bodySmall,
@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   });
                 },
               ),
-              SizedBox(height: 48),
+              SizedBox(height: 24),
               CustomElevatedButton (
                 onPressed: () {
                   Navigator.push(

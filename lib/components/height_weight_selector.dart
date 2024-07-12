@@ -13,16 +13,16 @@ class HeightWeightSelector extends StatefulWidget {
 }
 
 class _HeightWeightSelectorState extends State<HeightWeightSelector> {
-  late int hw_value;
+  late int hwValue;
   final ScrollController _scrollController = ScrollController();
   final double itemHeight = itemSize;
 
   @override
   void initState() {
     super.initState();
-    hw_value = widget.initialHWValue;
+    hwValue = widget.initialHWValue;
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _scrollToValue(hw_value, animate: false);
+      _scrollToValue(hwValue, animate: false);
     });
   }
 
@@ -89,22 +89,22 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
   }
 
   void _incrementValue() {
-    if (hw_value < 240) {
+    if (hwValue < 240) {
       setState(() {
-        hw_value++;
+        hwValue++;
       });
-      _scrollToValue(hw_value);
-      widget.onHWValueChanged(hw_value);
+      _scrollToValue(hwValue);
+      widget.onHWValueChanged(hwValue);
     }
   }
 
   void _decrementValue() {
-    if (hw_value > 40) {
+    if (hwValue > 40) {
       setState(() {
-        hw_value--;
+        hwValue--;
       });
-      _scrollToValue(hw_value);
-      widget.onHWValueChanged(hw_value);
+      _scrollToValue(hwValue);
+      widget.onHWValueChanged(hwValue);
     }
   }
 
@@ -128,10 +128,10 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
                   int newValue = ((centerPosition / itemHeight) + 10).round();
                   print('Center Position: $centerPosition');
                   print('New Value: $newValue');
-                  if (newValue != hw_value) {
+                  if (newValue != hwValue) {
                     setState(() {
-                      hw_value = newValue;
-                      widget.onHWValueChanged(hw_value);
+                      hwValue = newValue;
+                      widget.onHWValueChanged(hwValue);
                     });
                   }
                 }
@@ -146,19 +146,19 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
                   return GestureDetector(
                     onTap: () {
                       setState(() {
-                        hw_value = displayValue;
+                        hwValue = displayValue;
                       });
-                      _scrollToValue(hw_value);
-                      widget.onHWValueChanged(hw_value);
+                      _scrollToValue(hwValue);
+                      widget.onHWValueChanged(hwValue);
                     },
                     child: Container(
                       height: itemHeight,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        boxShadow: hw_value == displayValue ? kInnerShadow : kDropShadow,
+                        boxShadow: hwValue == displayValue ? kInnerShadow : kDropShadow,
                         border: Border.all(
-                          color: hw_value == displayValue ? kColorDarkText : kColorDarkGreen,
+                          color: hwValue == displayValue ? kColorDarkText : kColorDarkGreen,
                           width: 1,
                         ),
                       ),
@@ -167,8 +167,8 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
                         displayValue.toString(),
                         style: TextStyle(
                           fontSize: 20,
-                          color: hw_value == displayValue ? kColorLightText : kColorDarkGreen,
-                          fontWeight: hw_value == displayValue ? FontWeight.bold : FontWeight.normal,
+                          color: hwValue == displayValue ? kColorLightText : kColorDarkGreen,
+                          fontWeight: hwValue == displayValue ? FontWeight.bold : FontWeight.normal,
                         ),
                       ),
                     ),

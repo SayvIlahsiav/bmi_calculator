@@ -6,7 +6,6 @@ import '../components/custom_elevated_button.dart';
 import '../components/height_weight_selector.dart';
 
 class SecondScreen extends StatefulWidget {
-  const SecondScreen({super.key});
 
   @override
   State<SecondScreen> createState() => _SecondScreenState();

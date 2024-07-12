@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import '../constants.dart';
 
@@ -13,9 +12,9 @@ class AgeSelector extends StatefulWidget {
 }
 
 class _AgeSelectorState extends State<AgeSelector> {
+
   late int age;
-  final ScrollController _scrollController = ScrollController();
-  final double itemWidth = itemSize;
+  final FixedExtentScrollController _scrollController = FixedExtentScrollController();
 
   @override
   void initState() {
@@ -26,71 +25,21 @@ class _AgeSelectorState extends State<AgeSelector> {
     });
   }
 
-  void jumpToPosition(int age) {
-    // Log screen width
-    double screenWidth = MediaQuery.of(context).size.width;
-    double centerPosition = screenWidth / 2;
-    double targetPosition = calculateTargetPosition(age, screenWidth);
-
-    // Ensure target position does not go below 0
-    if (targetPosition < 0) {
-      targetPosition = 0;
-      log('Adjusted Target Position to 0 to prevent scrolling out of bounds.');
-    }
-
-    // Ensure target position does not exceed maximum scroll extent
-    double maxScrollExtent = calculateMaxScrollExtent();
-    if (targetPosition > maxScrollExtent) {
-      targetPosition = maxScrollExtent;
-      log('Adjusted Target Position to $maxScrollExtent to prevent scrolling out of bounds.');
-    }
-
-    log('Screen Width: $screenWidth');
-    log('Target Position for age $age: $targetPosition');
-    log('Center Position: $centerPosition');
-
-    // Perform the jump
-    _scrollController.jumpTo(targetPosition);
-    log('Jumped to position: $targetPosition');
-  }
-
-  double calculateTargetPosition(int age, double screenWidth) {
-    double agePosition = age * itemWidth; // Assume each age is 32 pixels apart
-    return agePosition - (screenWidth / 2);
-  }
-
-  double calculateMaxScrollExtent() {
-    // Calculate the maximum scroll extent
-    // Assuming the total number of ages is 100 for example
-    int totalAges = 91;
-    double maxScrollExtent = (totalAges - 1) * itemWidth;
-    return maxScrollExtent;
-  }
-
-
   void _scrollToAge(int age, {bool animate = true}) {
-    final double screenWidth = MediaQuery.of(context).size.width;
-    final double targetPosition = (age - 10) * itemWidth - (screenWidth / 2 - itemWidth / 2);
-
-    print('Screen Width: $screenWidth');
-    print('Target Position for age $age: $targetPosition');
-
+    int ageIndex = age - minAge;
     if (animate) {
-      _scrollController.animateTo(
-        targetPosition,
+      _scrollController.animateToItem(
+        ageIndex,
         duration: Duration(milliseconds: 300),
         curve: Curves.easeInOut,
-      ).then((_) {
-        print('Scrolled to position: ${_scrollController.position.pixels}');
-      });
+      );
     } else {
-      _scrollController.jumpTo(targetPosition);
-      print('Jumped to position: ${_scrollController.position.pixels}');
+      _scrollController.jumpToItem(ageIndex);
     }
   }
 
   void _incrementAge() {
-    if (age < 100) {
+    if (age < maxAge) {
       setState(() {
         age++;
       });
@@ -100,7 +49,7 @@ class _AgeSelectorState extends State<AgeSelector> {
   }
 
   void _decrementAge() {
-    if (age > 10) {
+    if (age > minAge) {
       setState(() {
         age--;
       });
@@ -111,38 +60,33 @@ class _AgeSelectorState extends State<AgeSelector> {
 
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
-    return Container(
-      height: itemWidth,
+    return SizedBox(
+      height: 144, // Adjust height as needed
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           IconButton(
-            icon: Icon(Icons.arrow_left, size: 32, color: kColorDarkText),
+            icon: Icon(Icons.remove, size: 32, color: kColorDarkText),
             onPressed: _decrementAge,
           ),
-          Expanded(
-            child: NotificationListener<ScrollNotification>(
-              onNotification: (scrollNotification) {
-                if (scrollNotification is ScrollEndNotification) {
-                  double centerPosition = _scrollController.position.pixels + (screenWidth / 2 - itemWidth / 2);
-                  int newAge = ((centerPosition / itemWidth) + 10).round();
-                  print('Center Position: $centerPosition');
-                  print('New Age: $newAge');
-                  if (newAge != age) {
-                    setState(() {
-                      age = newAge;
-                      widget.onAgeChanged(age);
-                    });
-                  }
+          SizedBox(
+            width: 160,
+            child: ListWheelScrollView.useDelegate(
+              diameterRatio: 4.0,
+              controller: _scrollController,
+              itemExtent: itemSize,
+              onSelectedItemChanged: (index) {
+                int newAge = index + minAge;
+                if (newAge != age) {
+                  setState(() {
+                    age = newAge;
+                    widget.onAgeChanged(age);
+                  });
                 }
-                return false;
               },
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                controller: _scrollController,
-                itemCount: 91, // Age range from 10 to 100
-                itemBuilder: (context, index) {
-                  final displayAge = index + 10;
+              childDelegate: ListWheelChildBuilderDelegate(
+                builder: (context, index) {
+                  final displayAge = index + minAge;
                   return GestureDetector(
                     onTap: () {
                       setState(() {
@@ -152,7 +96,7 @@ class _AgeSelectorState extends State<AgeSelector> {
                       widget.onAgeChanged(age);
                     },
                     child: Container(
-                      width: itemWidth,
+                      width: 144,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
@@ -162,9 +106,9 @@ class _AgeSelectorState extends State<AgeSelector> {
                           width: 1,
                         ),
                       ),
-                      margin: EdgeInsets.symmetric(horizontal: 4),
+                      margin: EdgeInsets.symmetric(vertical: 4),
                       child: Text(
-                        displayAge.toString(),
+                        "$displayAge years",
                         style: TextStyle(
                           fontSize: 20,
                           color: age == displayAge ? kColorLightText : kColorDarkGreen,
@@ -174,11 +118,12 @@ class _AgeSelectorState extends State<AgeSelector> {
                     ),
                   );
                 },
+                childCount: maxAge - minAge + 1,
               ),
             ),
           ),
           IconButton(
-            icon: Icon(Icons.arrow_right, size: 32, color: kColorDarkText),
+            icon: Icon(Icons.add, size: 32, color: kColorDarkText),
             onPressed: _incrementAge,
           ),
         ],
