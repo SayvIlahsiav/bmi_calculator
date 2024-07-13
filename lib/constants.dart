@@ -12,6 +12,11 @@ const kColorLightText = Color(0xffEDF8E1);
 const int minAge = 10;
 const int maxAge = 100;
 const itemSize = 64.0;
+
+const int minHWValue = 40;
+const int maxHWValue = 240;
+const double itemHeight = itemSize;
+
 const screenPadding = EdgeInsets.all(16.0);
 
 const kInnerShadow = [

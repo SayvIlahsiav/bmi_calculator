@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import '../constants.dart';
 
@@ -13,9 +12,9 @@ class HeightWeightSelector extends StatefulWidget {
 }
 
 class _HeightWeightSelectorState extends State<HeightWeightSelector> {
+
   late int hwValue;
-  final ScrollController _scrollController = ScrollController();
-  final double itemHeight = itemSize;
+  final FixedExtentScrollController _scrollController = FixedExtentScrollController();
 
   @override
   void initState() {
@@ -26,70 +25,21 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
     });
   }
 
-  void jumpToPosition(int hw_value) {
-    // Log screen width
-    double screenHeight = MediaQuery.of(context).size.height;
-    double centerPosition = screenHeight / 2;
-    double targetPosition = calculateTargetPosition(hw_value, screenHeight);
-
-    // Ensure target position does not go below 0
-    if (targetPosition < 0) {
-      targetPosition = 0;
-      log('Adjusted Target Position to 0 to prevent scrolling out of bounds.');
-    }
-
-    // Ensure target position does not exceed maximum scroll extent
-    double maxScrollExtent = calculateMaxScrollExtent();
-    if (targetPosition > maxScrollExtent) {
-      targetPosition = maxScrollExtent;
-      log('Adjusted Target Position to $maxScrollExtent to prevent scrolling out of bounds.');
-    }
-
-    log('Screen Width: $screenHeight');
-    log('Target Position for value $hw_value: $targetPosition');
-    log('Center Position: $centerPosition');
-
-    // Perform the jump
-    _scrollController.jumpTo(targetPosition);
-    log('Jumped to position: $targetPosition');
-  }
-
-  double calculateTargetPosition(int hw_value, double screenHeight) {
-    double hwPosition = hw_value * itemHeight; // Assume each age is 32 pixels apart
-    return hwPosition - (screenHeight / 2);
-  }
-
-  double calculateMaxScrollExtent() {
-    // Calculate the maximum scroll extent
-    // Assuming the total number of values is 100 for example
-    int totalValues = 201;
-    double maxScrollExtent = (totalValues - 1) * itemHeight;
-    return maxScrollExtent;
-  }
-
-  void _scrollToValue(int hw_value, {bool animate = true}) {
-    final double screenHeight = MediaQuery.of(context).size.height;
-    final double targetPosition = (hw_value - 10) * itemHeight - (screenHeight / 2 - itemHeight / 2);
-
-    print('Screen Height: $screenHeight');
-    print('Target Position for hw_value $hw_value: $targetPosition');
-
+  void _scrollToValue(int hwValue, {bool animate = true}) {
+    int valueIndex = hwValue - minHWValue;
     if (animate) {
-      _scrollController.animateTo(
-        targetPosition,
+      _scrollController.animateToItem(
+        valueIndex,
         duration: Duration(milliseconds: 300),
         curve: Curves.easeInOut,
-      ).then((_) {
-        print('Scrolled to position: ${_scrollController.position.pixels}');
-      });
+      );
     } else {
-      _scrollController.jumpTo(targetPosition);
-      print('Jumped to position: ${_scrollController.position.pixels}');
+      _scrollController.jumpToItem(valueIndex);
     }
   }
 
   void _incrementValue() {
-    if (hwValue < 240) {
+    if (hwValue < maxHWValue) {
       setState(() {
         hwValue++;
       });
@@ -99,7 +49,7 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
   }
 
   void _decrementValue() {
-    if (hwValue > 40) {
+    if (hwValue > minHWValue) {
       setState(() {
         hwValue--;
       });
@@ -121,28 +71,22 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
             onPressed: _decrementValue,
           ),
           Expanded(
-            child: NotificationListener<ScrollNotification>(
-              onNotification: (scrollNotification) {
-                if (scrollNotification is ScrollEndNotification) {
-                  double centerPosition = _scrollController.position.pixels + (screenHeight / 2 - itemHeight / 2);
-                  int newValue = ((centerPosition / itemHeight) + 10).round();
-                  print('Center Position: $centerPosition');
-                  print('New Value: $newValue');
-                  if (newValue != hwValue) {
-                    setState(() {
-                      hwValue = newValue;
-                      widget.onHWValueChanged(hwValue);
-                    });
-                  }
+            child: ListWheelScrollView.useDelegate(
+              controller: _scrollController,
+              itemExtent: itemHeight,
+              diameterRatio: 4.0,
+              onSelectedItemChanged: (index) {
+                int newValue = index + minHWValue;
+                if (newValue != hwValue) {
+                  setState(() {
+                    hwValue = newValue;
+                    widget.onHWValueChanged(hwValue);
+                  });
                 }
-                return false;
               },
-              child: ListView.builder(
-                scrollDirection: Axis.vertical,
-                controller: _scrollController,
-                itemCount: 201, // Value range from 40 to 140
-                itemBuilder: (context, index) {
-                  final displayValue = index + 40;
+              childDelegate: ListWheelChildBuilderDelegate(
+                builder: (context, index) {
+                  final displayValue = index + minHWValue;
                   return GestureDetector(
                     onTap: () {
                       setState(() {
@@ -174,6 +118,7 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
                     ),
                   );
                 },
+                childCount: maxHWValue - minHWValue + 1,
               ),
             ),
           ),

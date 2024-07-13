@@ -29,6 +29,12 @@ final ThemeData appTheme = ThemeData(
       fontWeight: FontWeight.bold,
       color: kColorDarkGreen,
     ),
+    labelSmall: TextStyle(
+      fontFamily: 'Roboto',
+      fontSize: 16,
+      fontWeight: FontWeight.normal,
+      color: kColorDarkGreen,
+    ),
     bodyMedium: TextStyle(
       fontFamily: 'Roboto',
       fontSize: 24,

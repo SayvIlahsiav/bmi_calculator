@@ -34,13 +34,29 @@ class _SecondScreenState extends State<SecondScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Text(
-                      'Height',
-                      style: Theme.of(context).textTheme.bodySmall,
+                    Column(
+                      children: [
+                        Text(
+                          'Height',
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                        Text(
+                          '(in cm)',
+                          style: Theme.of(context).textTheme.labelSmall,
+                        ),
+                      ],
                     ),
-                    Text(
-                      'Weight',
-                      style: Theme.of(context).textTheme.bodySmall,
+                    Column(
+                      children: [
+                        Text(
+                          'Weight',
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                        Text(
+                          '(in kg)',
+                          style: Theme.of(context).textTheme.labelSmall,
+                        ),
+                      ],
                     ),
                   ],
                 ),
