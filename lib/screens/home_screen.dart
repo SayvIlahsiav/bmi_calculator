@@ -1,12 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:bmi_calculator/components/custom_elevated_button.dart';
 import 'package:bmi_calculator/components/gradient_background.dart';
 import 'package:bmi_calculator/screens/second_screen.dart';
-import 'package:flutter/material.dart';
 import 'package:bmi_calculator/components/gender_selector.dart';
 import '../components/age_selector.dart';
 import '../constants.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -20,16 +22,17 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        leading: Icon(Icons.calculate_rounded, size: 32,),
+        leading: const Icon(Icons.calculate_rounded, size: 32),
         title: Text(
           'BMI CALCULATOR',
           style: Theme.of(context).textTheme.displayMedium,
         ),
         backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
       body: GradientBackground(
         child: Padding(
-          padding: screenPadding,
+          padding: kScreenPadding,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -37,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 'Gender',
                 style: Theme.of(context).textTheme.bodySmall,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               GenderSelector(
                 selectedGender: selectedGender,
                 onGenderSelected: (gender) {
@@ -46,12 +49,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   });
                 },
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               Text(
                 'Age',
                 style: Theme.of(context).textTheme.bodySmall,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               AgeSelector(
                 initialAge: age,
                 onAgeChanged: (newAge) {
@@ -60,8 +63,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   });
                 },
               ),
-              SizedBox(height: 24),
-              CustomElevatedButton (
+              const SizedBox(height: 24),
+              CustomElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,

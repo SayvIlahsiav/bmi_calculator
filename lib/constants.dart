@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Color Constants
 const kColorLightBlue = Color(0xffB4DAF5);
 const kColorLightGreen = Color(0xffBBEEBA);
 const kColorLightYellow = Color(0xffFFECBA);
@@ -9,17 +10,22 @@ const kColorDarkGreen = Color(0xff467302);
 const kColorDarkYellow = Color(0xffD2DD13);
 const kColorLightText = Color(0xffEDF8E1);
 
-const int minAge = 10;
-const int maxAge = 100;
-const itemSize = 64.0;
+// Age Constants
+const int kMinAge = 10;
+const int kMaxAge = 100;
 
-const int minHWValue = 40;
-const int maxHWValue = 240;
-const double itemHeight = itemSize;
+// Height/Weight Constants
+const int kMinHWValue = 40;
+const int kMaxHWValue = 240;
 
-const screenPadding = EdgeInsets.all(16.0);
+// Size Constants
+const double kItemSize = 64.0;
 
-const kInnerShadow = [
+// Padding Constants
+const EdgeInsets kScreenPadding = EdgeInsets.all(16.0);
+
+// Shadow Constants
+const List<BoxShadow> kInnerShadow = [
   BoxShadow(
     color: kColorDarkText,
     blurRadius: 2,
@@ -36,7 +42,7 @@ const kInnerShadow = [
   ),
 ];
 
-const kDropShadow = [
+const List<BoxShadow> kDropShadow = [
   BoxShadow(
     color: kColorDarkText,
     blurRadius: 1,
@@ -50,7 +56,7 @@ const kDropShadow = [
   ),
 ];
 
-const kDropShadowBtn = [
+const List<BoxShadow> kDropShadowBtn = [
   BoxShadow(
     color: kColorDarkText,
     blurRadius: 1,

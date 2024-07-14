@@ -5,7 +5,11 @@ class GenderSelector extends StatelessWidget {
   final String? selectedGender;
   final ValueChanged<String> onGenderSelected;
 
-  GenderSelector({required this.selectedGender, required this.onGenderSelected});
+  const GenderSelector({
+    Key? key,
+    required this.selectedGender,
+    required this.onGenderSelected,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +22,7 @@ class GenderSelector extends StatelessWidget {
             _buildGenderButton('Male', Icons.male),
           ],
         ),
-        SizedBox(height: 24),
+        const SizedBox(height: 24),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -54,7 +58,7 @@ class GenderSelector extends StatelessWidget {
               color: kColorDarkText,
             ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(
             gender.toUpperCase(),
             style: TextStyle(

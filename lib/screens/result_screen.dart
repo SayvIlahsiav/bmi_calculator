@@ -8,7 +8,8 @@ class ResultScreen extends StatelessWidget {
   final double height;
   final double weight;
 
-  ResultScreen({required this.height, required this.weight});
+  // Constructor for ResultScreen
+  const ResultScreen({Key? key, required this.height, required this.weight}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +25,12 @@ class ResultScreen extends StatelessWidget {
           style: theme.textTheme.displayMedium,
         ),
         backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
       body: GradientBackground(
         child: Center(
           child: Padding(
-            padding: screenPadding,
+            padding: kScreenPadding,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -36,12 +38,11 @@ class ResultScreen extends StatelessWidget {
                   'Your BMI is:',
                   style: theme.textTheme.bodyMedium,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Container(
                   height: MediaQuery.of(context).size.width * 0.8,
                   width: MediaQuery.of(context).size.width * 0.8,
                   decoration: BoxDecoration(
-                    //color: kColorLightText,
                     shape: BoxShape.circle,
                     boxShadow: kDropShadow,
                     border: Border.all(
@@ -56,12 +57,12 @@ class ResultScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Text(
                   result.toUpperCase(),
                   style: theme.textTheme.labelMedium,
                 ),
-                SizedBox(height: 32),
+                const SizedBox(height: 32),
                 Text(
                   'Healthy BMI range is:',
                   style: theme.textTheme.bodyMedium,
@@ -70,13 +71,13 @@ class ResultScreen extends StatelessWidget {
                   '18.5 kg/m\u00b2 - 25 kg/m\u00b2',
                   style: theme.textTheme.labelMedium,
                 ),
-                SizedBox(height: 48),
+                const SizedBox(height: 48),
                 CustomElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HomeScreen(),
+                        builder: (context) => const HomeScreen(),
                       ),
                     );
                   },

@@ -5,7 +5,11 @@ class CustomElevatedButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String text;
 
-  CustomElevatedButton({required this.onPressed, required this.text});
+  const CustomElevatedButton({
+    Key? key,
+    required this.onPressed,
+    required this.text,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +31,11 @@ class CustomElevatedButton extends StatelessWidget {
             fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
-          minimumSize: Size(256, 64), // Custom dimensions
+          minimumSize: const Size(256, 64), // Custom dimensions
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.0), // Rounded corners
           ),
-          shadowColor: kColorDarkText, // Remove the default shadow
+          shadowColor: kColorDarkText, // Custom shadow color
         ),
         onPressed: onPressed,
         child: Text(text),

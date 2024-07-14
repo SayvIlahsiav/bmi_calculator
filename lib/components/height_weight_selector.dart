@@ -5,14 +5,13 @@ class HeightWeightSelector extends StatefulWidget {
   final int initialHWValue;
   final ValueChanged<int> onHWValueChanged;
 
-  HeightWeightSelector({required this.initialHWValue, required this.onHWValueChanged});
+  const HeightWeightSelector({Key? key, required this.initialHWValue, required this.onHWValueChanged}) : super(key: key);
 
   @override
   State<HeightWeightSelector> createState() => _HeightWeightSelectorState();
 }
 
 class _HeightWeightSelectorState extends State<HeightWeightSelector> {
-
   late int hwValue;
   final FixedExtentScrollController _scrollController = FixedExtentScrollController();
 
@@ -26,11 +25,11 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
   }
 
   void _scrollToValue(int hwValue, {bool animate = true}) {
-    int valueIndex = hwValue - minHWValue;
+    final int valueIndex = hwValue - kMinHWValue;
     if (animate) {
       _scrollController.animateToItem(
         valueIndex,
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
     } else {
@@ -39,7 +38,7 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
   }
 
   void _incrementValue() {
-    if (hwValue < maxHWValue) {
+    if (hwValue < kMaxHWValue) {
       setState(() {
         hwValue++;
       });
@@ -49,7 +48,7 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
   }
 
   void _decrementValue() {
-    if (hwValue > minHWValue) {
+    if (hwValue > kMinHWValue) {
       setState(() {
         hwValue--;
       });
@@ -62,21 +61,21 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     return Container(
-      width: itemHeight * 2,
+      width: kItemSize * 2,
       height: screenHeight * 0.65,
       child: Column(
         children: [
           IconButton(
-            icon: Icon(Icons.arrow_drop_up, size: 32, color: kColorDarkText),
+            icon: const Icon(Icons.arrow_drop_up, size: 32, color: kColorDarkText),
             onPressed: _decrementValue,
           ),
           Expanded(
             child: ListWheelScrollView.useDelegate(
               controller: _scrollController,
-              itemExtent: itemHeight,
+              itemExtent: kItemSize,
               diameterRatio: 4.0,
               onSelectedItemChanged: (index) {
-                int newValue = index + minHWValue;
+                final int newValue = index + kMinHWValue;
                 if (newValue != hwValue) {
                   setState(() {
                     hwValue = newValue;
@@ -86,7 +85,7 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
               },
               childDelegate: ListWheelChildBuilderDelegate(
                 builder: (context, index) {
-                  final displayValue = index + minHWValue;
+                  final int displayValue = index + kMinHWValue;
                   return GestureDetector(
                     onTap: () {
                       setState(() {
@@ -96,7 +95,7 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
                       widget.onHWValueChanged(hwValue);
                     },
                     child: Container(
-                      height: itemHeight,
+                      height: kItemSize,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
@@ -106,7 +105,7 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
                           width: 1,
                         ),
                       ),
-                      margin: EdgeInsets.symmetric(vertical: 4),
+                      margin: const EdgeInsets.symmetric(vertical: 4),
                       child: Text(
                         displayValue.toString(),
                         style: TextStyle(
@@ -118,12 +117,12 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
                     ),
                   );
                 },
-                childCount: maxHWValue - minHWValue + 1,
+                childCount: kMaxHWValue - kMinHWValue + 1,
               ),
             ),
           ),
           IconButton(
-            icon: Icon(Icons.arrow_drop_down, size: 32, color: kColorDarkText),
+            icon: const Icon(Icons.arrow_drop_down, size: 32, color: kColorDarkText),
             onPressed: _incrementValue,
           ),
         ],
