@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:bmi_calculator/components/custom_elevated_button.dart';
+import 'package:bmi_calculator/components/gender_selector.dart';
 import 'package:bmi_calculator/components/gradient_background.dart';
 import 'package:bmi_calculator/screens/second_screen.dart';
-import 'package:bmi_calculator/components/gender_selector.dart';
+import 'package:flutter/material.dart';
+
 import '../components/age_selector.dart';
 import '../constants.dart';
 

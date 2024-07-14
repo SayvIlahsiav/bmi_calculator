@@ -1,6 +1,7 @@
 import 'package:bmi_calculator/components/gradient_background.dart';
 import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
+
 import 'home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -33,18 +34,20 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.calculate_rounded, size: 128, color: kColorDarkText),
+              const Icon(Icons.calculate_rounded,
+                  size: 128, color: kColorDarkText),
               const SizedBox(height: 24),
               Text(
                 'BMI\nCALCULATOR',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                  color: kColorDarkText,
-                  fontWeight: FontWeight.bold,
-                ),
+                      color: kColorDarkText,
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
               const SizedBox(height: 32),
-              const CircularProgressIndicator(color: kColorDarkText), // Added a loading indicator
+              const CircularProgressIndicator(
+                  color: kColorDarkText), // Added a loading indicator
             ],
           ),
         ),

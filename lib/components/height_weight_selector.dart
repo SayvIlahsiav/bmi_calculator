@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+
 import '../constants.dart';
 
 class HeightWeightSelector extends StatefulWidget {
   final int initialHWValue;
   final ValueChanged<int> onHWValueChanged;
 
-  const HeightWeightSelector({Key? key, required this.initialHWValue, required this.onHWValueChanged}) : super(key: key);
+  const HeightWeightSelector(
+      {Key? key, required this.initialHWValue, required this.onHWValueChanged})
+      : super(key: key);
 
   @override
   State<HeightWeightSelector> createState() => _HeightWeightSelectorState();
@@ -13,7 +16,8 @@ class HeightWeightSelector extends StatefulWidget {
 
 class _HeightWeightSelectorState extends State<HeightWeightSelector> {
   late int hwValue;
-  final FixedExtentScrollController _scrollController = FixedExtentScrollController();
+  final FixedExtentScrollController _scrollController =
+      FixedExtentScrollController();
 
   @override
   void initState() {
@@ -66,7 +70,8 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
       child: Column(
         children: [
           IconButton(
-            icon: const Icon(Icons.arrow_drop_up, size: 32, color: kColorDarkText),
+            icon: const Icon(Icons.arrow_drop_up,
+                size: 32, color: kColorDarkText),
             onPressed: _decrementValue,
           ),
           Expanded(
@@ -99,9 +104,13 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        boxShadow: hwValue == displayValue ? kInnerShadow : kDropShadow,
+                        boxShadow: hwValue == displayValue
+                            ? kInnerShadow
+                            : kDropShadow,
                         border: Border.all(
-                          color: hwValue == displayValue ? kColorDarkText : kColorDarkGreen,
+                          color: hwValue == displayValue
+                              ? kColorDarkText
+                              : kColorDarkGreen,
                           width: 1,
                         ),
                       ),
@@ -110,8 +119,12 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
                         displayValue.toString(),
                         style: TextStyle(
                           fontSize: 20,
-                          color: hwValue == displayValue ? kColorLightText : kColorDarkGreen,
-                          fontWeight: hwValue == displayValue ? FontWeight.bold : FontWeight.normal,
+                          color: hwValue == displayValue
+                              ? kColorLightText
+                              : kColorDarkGreen,
+                          fontWeight: hwValue == displayValue
+                              ? FontWeight.bold
+                              : FontWeight.normal,
                         ),
                       ),
                     ),
@@ -122,7 +135,8 @@ class _HeightWeightSelectorState extends State<HeightWeightSelector> {
             ),
           ),
           IconButton(
-            icon: const Icon(Icons.arrow_drop_down, size: 32, color: kColorDarkText),
+            icon: const Icon(Icons.arrow_drop_down,
+                size: 32, color: kColorDarkText),
             onPressed: _incrementValue,
           ),
         ],

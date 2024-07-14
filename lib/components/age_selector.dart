@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../constants.dart';
 
 class AgeSelector extends StatefulWidget {
@@ -13,7 +14,8 @@ class AgeSelector extends StatefulWidget {
 
 class _AgeSelectorState extends State<AgeSelector> {
   late int age;
-  final FixedExtentScrollController _scrollController = FixedExtentScrollController();
+  final FixedExtentScrollController _scrollController =
+      FixedExtentScrollController();
 
   @override
   void initState() {
@@ -99,9 +101,12 @@ class _AgeSelectorState extends State<AgeSelector> {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        boxShadow: age == displayAge ? kInnerShadow : kDropShadow,
+                        boxShadow:
+                            age == displayAge ? kInnerShadow : kDropShadow,
                         border: Border.all(
-                          color: age == displayAge ? kColorDarkText : kColorDarkGreen,
+                          color: age == displayAge
+                              ? kColorDarkText
+                              : kColorDarkGreen,
                           width: 1,
                         ),
                       ),
@@ -110,8 +115,12 @@ class _AgeSelectorState extends State<AgeSelector> {
                         "$displayAge years",
                         style: TextStyle(
                           fontSize: 20,
-                          color: age == displayAge ? kColorLightText : kColorDarkGreen,
-                          fontWeight: age == displayAge ? FontWeight.bold : FontWeight.normal,
+                          color: age == displayAge
+                              ? kColorLightText
+                              : kColorDarkGreen,
+                          fontWeight: age == displayAge
+                              ? FontWeight.bold
+                              : FontWeight.normal,
                         ),
                       ),
                     ),

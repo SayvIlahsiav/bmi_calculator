@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../constants.dart';
 
 class CustomElevatedButton extends StatelessWidget {
@@ -31,7 +32,8 @@ class CustomElevatedButton extends StatelessWidget {
             fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
-          minimumSize: const Size(256, 64), // Custom dimensions
+          minimumSize: const Size(256, 64),
+          // Custom dimensions
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.0), // Rounded corners
           ),

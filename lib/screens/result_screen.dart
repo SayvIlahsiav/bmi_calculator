@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+
 import '../components/custom_elevated_button.dart';
+import '../components/gradient_background.dart';
 import '../constants.dart';
 import 'home_screen.dart';
-import '../components/gradient_background.dart';
 
 class ResultScreen extends StatelessWidget {
   final double height;
   final double weight;
 
   // Constructor for ResultScreen
-  const ResultScreen({Key? key, required this.height, required this.weight}) : super(key: key);
+  const ResultScreen({Key? key, required this.height, required this.weight})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

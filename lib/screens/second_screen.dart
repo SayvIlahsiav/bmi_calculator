@@ -2,6 +2,7 @@ import 'package:bmi_calculator/components/gradient_background.dart';
 import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/screens/result_screen.dart';
 import 'package:flutter/material.dart';
+
 import '../components/custom_elevated_button.dart';
 import '../components/height_weight_selector.dart';
 
