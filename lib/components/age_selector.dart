@@ -5,14 +5,13 @@ class AgeSelector extends StatefulWidget {
   final int initialAge;
   final ValueChanged<int> onAgeChanged;
 
-  AgeSelector({required this.initialAge, required this.onAgeChanged});
+  const AgeSelector({required this.initialAge, required this.onAgeChanged});
 
   @override
   _AgeSelectorState createState() => _AgeSelectorState();
 }
 
 class _AgeSelectorState extends State<AgeSelector> {
-
   late int age;
   final FixedExtentScrollController _scrollController = FixedExtentScrollController();
 
@@ -26,11 +25,11 @@ class _AgeSelectorState extends State<AgeSelector> {
   }
 
   void _scrollToAge(int age, {bool animate = true}) {
-    int ageIndex = age - minAge;
+    int ageIndex = age - kMinAge;
     if (animate) {
       _scrollController.animateToItem(
         ageIndex,
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
     } else {
@@ -39,7 +38,7 @@ class _AgeSelectorState extends State<AgeSelector> {
   }
 
   void _incrementAge() {
-    if (age < maxAge) {
+    if (age < kMaxAge) {
       setState(() {
         age++;
       });
@@ -49,7 +48,7 @@ class _AgeSelectorState extends State<AgeSelector> {
   }
 
   void _decrementAge() {
-    if (age > minAge) {
+    if (age > kMinAge) {
       setState(() {
         age--;
       });
@@ -66,7 +65,7 @@ class _AgeSelectorState extends State<AgeSelector> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           IconButton(
-            icon: Icon(Icons.remove, size: 32, color: kColorDarkText),
+            icon: const Icon(Icons.remove, size: 32, color: kColorDarkText),
             onPressed: _decrementAge,
           ),
           SizedBox(
@@ -74,9 +73,9 @@ class _AgeSelectorState extends State<AgeSelector> {
             child: ListWheelScrollView.useDelegate(
               diameterRatio: 4.0,
               controller: _scrollController,
-              itemExtent: itemSize,
+              itemExtent: kItemSize,
               onSelectedItemChanged: (index) {
-                int newAge = index + minAge;
+                int newAge = index + kMinAge;
                 if (newAge != age) {
                   setState(() {
                     age = newAge;
@@ -86,7 +85,7 @@ class _AgeSelectorState extends State<AgeSelector> {
               },
               childDelegate: ListWheelChildBuilderDelegate(
                 builder: (context, index) {
-                  final displayAge = index + minAge;
+                  final displayAge = index + kMinAge;
                   return GestureDetector(
                     onTap: () {
                       setState(() {
@@ -106,7 +105,7 @@ class _AgeSelectorState extends State<AgeSelector> {
                           width: 1,
                         ),
                       ),
-                      margin: EdgeInsets.symmetric(vertical: 4),
+                      margin: const EdgeInsets.symmetric(vertical: 4),
                       child: Text(
                         "$displayAge years",
                         style: TextStyle(
@@ -118,12 +117,12 @@ class _AgeSelectorState extends State<AgeSelector> {
                     ),
                   );
                 },
-                childCount: maxAge - minAge + 1,
+                childCount: kMaxAge - kMinAge + 1,
               ),
             ),
           ),
           IconButton(
-            icon: Icon(Icons.add, size: 32, color: kColorDarkText),
+            icon: const Icon(Icons.add, size: 32, color: kColorDarkText),
             onPressed: _incrementAge,
           ),
         ],
