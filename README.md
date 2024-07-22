@@ -1,16 +1,75 @@
-# bmi_calculator
+# BMI Calculator
 
-An inclusive BMI Calculator app made using Google's Flutter.
+A simple Body Mass Index (BMI) Calculator built using Flutter. This app allows users to input their height and weight, and calculates their BMI, providing an easy way to monitor their health.
 
-## Getting Started
+## Table of Contents
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
 
-This project is a starting point for a Flutter application.
+[//]: # (- [Screenshots]&#40;#screenshots&#41;)
+- [Contributing](#contributing)
 
-A few resources to get you started if this is your first Flutter project:
+## Features
+- Calculate BMI based on height and weight.
+- Interactive UI with custom buttons and selectors.
+- Gradient background for a visually appealing look.
+- Splash screen with a transition to the main application.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Installation
+To run this project locally, follow these steps:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/sayvilahsiav/bmi-calculator.git
+    cd bmi-calculator
+    ```
+
+2. **Install dependencies:**
+    ```bash
+    flutter pub get
+    ```
+
+3. **Run the app:**
+    ```bash
+    flutter run
+    ```
+
+## Usage
+1. Open the app.
+2. On the splash screen, wait for a few seconds to transition to the main screen.
+3. Enter your height (in cm) and weight (in kg) using the provided selectors.
+4. Tap the 'Calculate' button to view your BMI.
+
+
+[//]: # (## Screenshots)
+
+[//]: # (### Splash Screen)
+
+[//]: # (![Splash Screen]&#40;screenshots/splash_screen.png&#41;)
+
+[//]: # ()
+[//]: # (### Home Screen)
+
+[//]: # (![Home Screen]&#40;screenshots/home_screen.png&#41;)
+
+[//]: # ()
+[//]: # (### Second Screen)
+
+[//]: # (![Second Screen]&#40;screenshots/second_screen.png&#41;)
+
+[//]: # ()
+[//]: # (### BMI Calculation)
+
+[//]: # (![Result Screen]&#40;screenshots/result_screen.png&#41;)
+
+## Contributing
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-branch-name`.
+3. Make your changes and commit them: `git commit -m 'Add some feature'`.
+4. Push to the branch: `git push origin feature-branch-name`.
+5. Open a pull request.
+
+---
