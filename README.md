@@ -7,6 +7,7 @@ A simple Body Mass Index (BMI) Calculator built using Flutter. This app allows u
 - [Installation](#installation)
 - [Usage](#usage)
 - [Screenshots](#screenshots)
+- [APK](#apk)
 - [Contributing](#contributing)
 
 ## Features
@@ -52,6 +53,8 @@ To run this project locally, follow these steps:
 |:-----------------------------------------------:|:-------------------------------------------:|:---------------------------------------------------------------:|:---------------------------------------------------:|
 | ![Splash](assets/screenshots/splash_screen.png) | ![Home](assets/screenshots/home_screen.png) | ![Height & Weight](assets/screenshots/height_weight_screen.png) | ![Result](assets/screenshots/bmi_result_screen.png) |
 
+## APK
+- [bmi_calculator_v0.1.0-pre.apk](https://github.com/SayvIlahsiav/bmi_calculator/releases/download/v0.1.0-pre/bmi_calculator_v0.1.0-pre.apk)
 
 ## Contributing
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
