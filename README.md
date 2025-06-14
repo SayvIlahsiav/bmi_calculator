@@ -42,29 +42,28 @@ To run this project locally, follow these steps:
 
 ## Screenshots
 
-### Splash Screen
+> A sneak peek into the experience of using the BMI Calculator app.
 
-![Splash Screen](assets/screenshots/splash_screen.png)
+| Splash Screen                                   | Home Screen                                 |
+|-------------------------------------------------|---------------------------------------------|
+| ![Splash](assets/screenshots/splash_screen.png) | ![Home](assets/screenshots/home_screen.png) |
 
-### Home Screen
+| Height & Weight Input                                           | BMI Result                                          |
+|-----------------------------------------------------------------|-----------------------------------------------------|
+| ![Height & Weight](assets/screenshots/height_weight_screen.png) | ![Result](assets/screenshots/bmi_result_screen.png) |
 
-![Home Screen](assets/screenshots/home_screen.png)
+### 🌀 App Logo
 
-### Height & Weight Input
+<p>
+  <img src="assets/screenshots/logo.png" alt="App Logo" width="1080"/>
+</p>
 
-![Height Weight Screen](assets/screenshots/height_weight_screen.png)
+### 🎥 Live Demo (GIF)
 
-### BMI Result
+<p>
+  <img src="assets/screenshots/bmi_calculation.gif" alt="BMI Calculator in action" width="80%"/>
+</p>
 
-![BMI Result Screen](assets/screenshots/bmi_result_screen.png)
-
-### App Logo
-
-![App Logo](assets/screenshots/logo.png)
-
-### Screen Recording (GIF)
-
-![BMI Calculation](assets/screenshots/bmi_calculation.gif)
 
 ## Contributing
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
