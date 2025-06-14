@@ -44,9 +44,13 @@ To run this project locally, follow these steps:
 
 > A sneak peek into the experience of using the BMI Calculator app.
 
-|                 Logo                 |                      Live Demo                       |                  Splash Screen                  |                 Home Screen                 |                      Height & Weight Input                      |                     BMI Result                      |
-|:------------------------------------:|:----------------------------------------------------:|:-----------------------------------------------:|:-------------------------------------------:|:---------------------------------------------------------------:|:---------------------------------------------------:|
-| ![Logo](assets/screenshots/logo.png) | ![Live Demo](assets/screenshots/bmi_calculation.gif) | ![Splash](assets/screenshots/splash_screen.png) | ![Home](assets/screenshots/home_screen.png) | ![Height & Weight](assets/screenshots/height_weight_screen.png) | ![Result](assets/screenshots/bmi_result_screen.png) |
+|                 Logo                 |                      Live Demo                       |
+|:------------------------------------:|:----------------------------------------------------:|
+| ![Logo](assets/screenshots/logo.png) | ![Live Demo](assets/screenshots/bmi_calculation.gif) |
+
+|                  Splash Screen                  |                 Home Screen                 |                      Height & Weight Input                      |                     BMI Result                      |
+|:-----------------------------------------------:|:-------------------------------------------:|:---------------------------------------------------------------:|:---------------------------------------------------:|
+| ![Splash](assets/screenshots/splash_screen.png) | ![Home](assets/screenshots/home_screen.png) | ![Height & Weight](assets/screenshots/height_weight_screen.png) | ![Result](assets/screenshots/bmi_result_screen.png) |
 
 
 ## Contributing
