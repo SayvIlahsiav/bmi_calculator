@@ -52,18 +52,9 @@ To run this project locally, follow these steps:
 |-----------------------------------------------------------------|-----------------------------------------------------|
 | ![Height & Weight](assets/screenshots/height_weight_screen.png) | ![Result](assets/screenshots/bmi_result_screen.png) |
 
-### 🌀 App Logo
-
-<p>
-  <img src="assets/screenshots/logo.png" alt="App Logo" width="1080"/>
-</p>
-
-### 🎥 Live Demo (GIF)
-
-<p>
-  <img src="assets/screenshots/bmi_calculation.gif" alt="BMI Calculator in action" width="80%"/>
-</p>
-
+| Live Demo                                            | Logo                                 |
+|------------------------------------------------------|--------------------------------------|
+| ![Live Demo](assets/screenshots/bmi_calculation.gif) | ![Logo](assets/screenshots/logo.png) |
 
 ## Contributing
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
