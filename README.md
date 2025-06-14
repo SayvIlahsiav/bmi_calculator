@@ -6,9 +6,8 @@ A simple Body Mass Index (BMI) Calculator built using Flutter. This app allows u
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Screenshots](#screenshots)
 - [Contributing](#contributing)
-
-[//]: # (- [Screenshots]&#40;#screenshots&#41;)
 
 ## Features
 - Calculate BMI based on height and weight.
@@ -41,27 +40,31 @@ To run this project locally, follow these steps:
 3. Enter your height (in cm) and weight (in kg) using the provided selectors.
 4. Tap the 'Calculate' button to view your BMI.
 
+## Screenshots
 
-[//]: # (## Screenshots)
+### Splash Screen
 
-[//]: # (### Splash Screen)
+![Splash Screen](assets/screenshots/splash_screen.png)
 
-[//]: # (![Splash Screen]&#40;screenshots/splash_screen.png&#41;)
+### Home Screen
 
-[//]: # ()
-[//]: # (### Home Screen)
+![Home Screen](assets/screenshots/home_screen.png)
 
-[//]: # (![Home Screen]&#40;screenshots/home_screen.png&#41;)
+### Height & Weight Input
 
-[//]: # ()
-[//]: # (### Second Screen)
+![Height Weight Screen](assets/screenshots/height_weight_screen.png)
 
-[//]: # (![Second Screen]&#40;screenshots/second_screen.png&#41;)
+### BMI Result
 
-[//]: # ()
-[//]: # (### BMI Calculation)
+![BMI Result Screen](assets/screenshots/bmi_result_screen.png)
 
-[//]: # (![Result Screen]&#40;screenshots/result_screen.png&#41;)
+### App Logo
+
+![App Logo](assets/screenshots/logo.png)
+
+### Screen Recording (GIF)
+
+![BMI Calculation](assets/screenshots/bmi_calculation.gif)
 
 ## Contributing
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
